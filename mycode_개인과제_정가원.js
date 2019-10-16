@@ -224,14 +224,9 @@ roomright.key.setWidth(30);
 roomright.locateObject(roomright.key, 650, 660);
 roomright.key.hide();
 
-roomleft.key = roomleft.createObject("key", "key.png");
-roomleft.key.setWidth(30);
-roomleft.locateObject(roomleft.key, 650, 660);
-roomleft.key.hide();
 
 roomright.key.onClick = function() {
-	roomright.key.hide();
-	roomleft.key.pick(); // pick하면 아이템이 인벤토리로 이동
+	roomright.key.pick(); // pick하면 아이템이 인벤토리로 이동
 	printMessage("열쇠를 얻었다!");
 }
 
@@ -330,7 +325,7 @@ roomleft.box1.onClick = function() {
 	if(roomleft.box1.isOpened()){
 		roomleft.box1.close();
 		roomleft.post.hide();
-	}else if (game.getHandItem()==roomleft.key && roomleft.box1.isClosed()){
+	}else if (game.getHandItem()==roomright.key && roomleft.box1.isClosed()){
 		roomleft.box1.open();
 		if(roomleft.post.isClosed()) {
 			roomleft.post.show();
